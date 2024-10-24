@@ -32,9 +32,9 @@ Exemplo:
 
 Tabela de Alunos
 
-| ID | Nome | Cursos             |
-| :- | :--- | :----------------- |
-| 1  | José | Matemática, Física |
+| ID | Nome | Cursos            |
+| :- | :--- | :---------------- |
+| 1  | José | Matemática,Física |
 
 Problema: Os cursos Matemática e Física apenas existem nas linhas da Tabela Alunos.
 
@@ -78,7 +78,13 @@ SELECT cursos FROM alunos WHERE id = ?;
 ```
 
 Problema: Veja que dessa forma os cursos vão vir praticamente em formato `.csv`, o que geralmente
-torna necessário um tratamento por fora do SQL para saber quais os cursos daquele usuário.
+torna necessário um tratamento por fora do SQL para saber quais os cursos daquele usuário. Algo como
+o trecho abaixo:
+
+```js
+const resultado_cursos = resultado_consulta;
+const cursos = resultado_cursos.split(',');
+```
 
 Solução:
 
